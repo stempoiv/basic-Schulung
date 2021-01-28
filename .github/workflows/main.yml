@@ -1,1 +1,14 @@
+name: Basic-Schulung  # eine checkout action
+on:
+  push:
+  workflow_dispatch:   #Button, der nur im name: angezeigt wird
 
+jobs:
+  build:
+    name: My first Action
+    runs-on: unbuntu-latest  # self-hosted wäre ein runner, der allgemein verfügbar ist
+    steps: 
+      - uses: actions/checkout@v1            # , checkout auf unser Repo
+      - uses: ./action-a                     # Ordner, in der die Action steht, baue einen Docker
+        with:
+          MY_NAME: Oliver                    # unsere Variable hinzufügen
